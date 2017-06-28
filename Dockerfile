@@ -1,4 +1,4 @@
-FROM asera79/alpine-glibc
+FROM asera79/alpine_glibc
 
 MAINTAINER asera79@gmail.com
 
