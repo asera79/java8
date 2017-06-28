@@ -1,16 +1,16 @@
-FROM asera79/alpine-3.4-glibc
+FROM asera79/alpine-glibc:3.6
 
 MAINTAINER asera79@gmail.com
 
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm
 
-RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
+RUN apk update && apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     cd "/tmp" && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
-    "http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz" && \
-    tar -xzf "jdk-8u102-linux-x64.tar.gz" && \
+    "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz" && \
+    tar -xzf "jdk-8u131-linux-x64.tar.gz" && \
     mkdir -p "/usr/lib/jvm" && \
-    mv "/tmp/jdk1.8.0_102" "/usr/lib/jvm/java-8-oracle" && \
+    mv "/tmp/jdk1.8.0_131" "/usr/lib/jvm/java-8-oracle" && \
     ln -s "java-8-oracle" "$JAVA_HOME" && \
     ln -s "$JAVA_HOME/bin/"* "/usr/bin/" && \
     rm -rf "$JAVA_HOME/"*src.zip && \
